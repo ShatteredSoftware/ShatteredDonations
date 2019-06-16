@@ -8,6 +8,7 @@
     <artifactId>ShatteredDonations</artifactId>
     <version>1.0.0</version>
     <inceptionYear>2019</inceptionYear>
+    <description>A global-event based, EULA-compliant donation plugin.</description>
 
     <properties>
         <java.version>1.8</java.version>
