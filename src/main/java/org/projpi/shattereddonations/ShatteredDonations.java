@@ -170,7 +170,7 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
     @Override
     public void loadPlayer(Player player)
     {
-        data.getDonations(player.getUniqueId());
+        donationValues.put(player.getUniqueId(), data.getDonations(player.getUniqueId()));
     }
 
     @Override
