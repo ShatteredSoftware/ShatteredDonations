@@ -31,7 +31,7 @@ public class DonationCommand implements CommandExecutor
             HashMap<String, String> msgArgs = new HashMap<>();
             msgArgs.put("argc", String.valueOf(args.length));
             msgArgs.put("reqc", "1");
-            instance.getMessenger().sendErrorMessage(commandSender, "not-enough-args");
+            instance.getMessenger().sendErrorMessage(commandSender, "not-enough-args", msgArgs);
             return true;
         }
         Player p = Bukkit.getServer().getPlayer(args[0]);
