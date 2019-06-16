@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class StatReward implements DonationReward
 {
+    public static final RewardParser parser = new Parser();
+
     private final StatType statType;
     private final StatOperation operation;
     private final int change;
@@ -45,7 +47,8 @@ public class StatReward implements DonationReward
         }
     }
 
-    public static class Parser implements RewardParser
+
+    private static class Parser implements RewardParser
     {
         @Override
         public DonationReward parse(ShatteredDonations instance, Map map)

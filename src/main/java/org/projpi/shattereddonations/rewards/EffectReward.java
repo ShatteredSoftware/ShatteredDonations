@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class EffectReward implements DonationReward
 {
+    public static final RewardParser parser = new Parser();
+
     private final String name;
     private final PotionEffect potion;
 
@@ -30,7 +32,7 @@ public class EffectReward implements DonationReward
         player.addPotionEffect(potion);
     }
 
-    public static class Parser implements RewardParser
+    private static class Parser implements RewardParser
     {
         @Override
         public DonationReward parse(ShatteredDonations instance, Map map)

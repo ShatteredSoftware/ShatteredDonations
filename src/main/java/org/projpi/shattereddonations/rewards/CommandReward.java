@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class CommandReward implements DonationReward
 {
+    public static final RewardParser parser = new Parser();
+
     private final String command;
     private final String name;
     private transient final ShatteredDonations instance;
@@ -32,7 +34,7 @@ public class CommandReward implements DonationReward
                 .replaceAll("%username%", player.getName()));
     }
 
-    public static class Parser implements RewardParser
+    private static class Parser implements RewardParser
     {
         @Override
         public DonationReward parse(ShatteredDonations instance, Map map)

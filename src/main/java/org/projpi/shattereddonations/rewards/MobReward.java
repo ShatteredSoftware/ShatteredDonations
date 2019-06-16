@@ -13,6 +13,8 @@ import java.util.Random;
 
 public class MobReward implements DonationReward
 {
+    public static final RewardParser parser = new Parser();
+
     private final EntityType mob;
     private final int radius;
     private final int amount;
@@ -69,7 +71,7 @@ public class MobReward implements DonationReward
         }
     }
 
-    public static class Parser implements RewardParser
+    private static class Parser implements RewardParser
     {
 
         @Override

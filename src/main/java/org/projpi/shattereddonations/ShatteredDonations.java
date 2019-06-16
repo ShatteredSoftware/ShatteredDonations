@@ -50,10 +50,10 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
             getLogger().info("Could not find PlaceholderAPI! Placeholders will not be parsed.");
         }
 
-        registerParser(new EffectReward.Parser());
-        registerParser(new CommandReward.Parser());
-        registerParser(new StatReward.Parser());
-        registerParser(new MobReward.Parser());
+        registerParser(EffectReward.parser);
+        registerParser(CommandReward.parser);
+        registerParser(StatReward.parser);
+        registerParser(MobReward.parser);
 
         loader.load();
         Messages messages = loader.getMessages();
