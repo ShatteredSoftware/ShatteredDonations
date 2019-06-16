@@ -1,8 +1,9 @@
-**ShatteredDonations**
+### ShatteredDonations
 *A simple, EULA-compliant donation plugin.*
 ___
 
-Defaults:
+#### Defaults
+
 **config.yml**
 ```yaml
 # Should all players get the same reward?
