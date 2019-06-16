@@ -30,7 +30,7 @@ public class DonateData
      */
     public int getDonations(UUID uuid)
     {
-        File f = new File(instance.getDataFolder(), "data" + File.separator + uuid.toString());
+        File f = new File(instance.getDataFolder(), "data" + File.separator + uuid.toString() + ".yml");
         if(!f.exists())
         {
             return 0;
