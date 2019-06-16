@@ -9,6 +9,7 @@ import org.projpi.shattereddonations.commands.DonateCommand;
 import org.projpi.shattereddonations.commands.DonationCommand;
 import org.projpi.shattereddonations.listeners.JoinLeaveListener;
 import org.projpi.shattereddonations.rewards.*;
+import org.projpi.shattereddonations.events.*;
 import org.projpi.shattereddonations.storage.DonateConfig;
 import org.projpi.shattereddonations.storage.DonateData;
 import org.projpi.shattereddonations.storage.DonateLoader;
@@ -94,22 +95,32 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
         HashMap<String, String> args = new HashMap<>();
         args.put("player", player.getDisplayName());
         args.put("reward", reward.getName());
+        RewardEvent rewardEvent = new RewardEvent(player, reward);
+        getServer().getPluginManager().callEvent(rewardEvent);
+        if(rewardEvent.isCancelled())
+        {
+            return;
+        }
+        reward = rewardEvent.getReward();
         for(Player p : Bukkit.getServer().getOnlinePlayers())
         {
             if(p.hasPermission("shatteredDonations.exempt"))
             {
                 continue;
             }
-            if(config.sameReward)
-            {
-                reward.execute(p);
-            }
-            else
+            if(!config.sameReward)
             {
                 reward = config.getRandomReward();
                 args.put("reward", reward.getName());
-                reward.execute(p);
             }
+            RewardExecuteEvent rewardExecuteEvent = new RewardExecuteEvent(p, reward);
+            getServer().getPluginManager().callEvent(rewardExecuteEvent);
+            if(rewardExecuteEvent.isCancelled())
+            {
+                continue;
+            }
+            reward = rewardExecuteEvent.getReward();
+            reward.execute(p);
             if(config.titles)
             {
                 p.sendTitle(
