@@ -1,0 +1,26 @@
+name: ${project.artifactId}
+description: ${project.description}
+main: org.projpi.shattereddonations.ShatteredDonations
+version: ${project.version}
+authors:
+  - UberPilot
+softdepend:
+  - PlaceholderAPI
+commands:
+  donation:
+    description: Runs a donation event with <target> as the target.
+    usage: /donation <target>
+  donate:
+    description: Provides a link to donate.
+    usage: /donate
+
+permissions:
+  shatteredDonate.donation:
+    default: op
+    description: Allows use of the /donation command. Intended to be run from console.
+  shatteredDonate.donate:
+    default: true
+    description: Allows use of the /donate command.
+  shatteredDonations.exempt:
+    default: false
+    description: Makes the user exempt from donation events.
