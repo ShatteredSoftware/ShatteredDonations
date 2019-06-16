@@ -19,7 +19,7 @@ public class MobReward implements DonationReward
     private final String name;
     private static final Random random = new Random();
 
-    public MobReward(ShatteredDonations instance, EntityType mob, int radius, int amount, String name)
+    public MobReward(EntityType mob, int radius, int amount, String name)
     {
         this.mob = mob;
         this.radius = radius;
@@ -104,7 +104,7 @@ public class MobReward implements DonationReward
                     ? (int) map.get("amount")
                     : 2;
 
-            return new MobReward(instance, mobType, radius, amount, name);
+            return new MobReward(mobType, radius, amount, name);
         }
 
         @Override
