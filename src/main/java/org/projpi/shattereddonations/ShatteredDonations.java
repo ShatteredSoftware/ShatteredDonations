@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.projpi.shattereddonations.commands.DonateCommand;
 import org.projpi.shattereddonations.commands.DonationCommand;
 import org.projpi.shattereddonations.listeners.JoinLeaveListener;
+import org.projpi.shattereddonations.placeholders.ShatteredDonationPlaceholders;
 import org.projpi.shattereddonations.rewards.*;
 import org.projpi.shattereddonations.events.*;
 import org.projpi.shattereddonations.storage.DonateConfig;
@@ -51,6 +52,7 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
         Metrics metrics = new Metrics(this);
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null)
         {
+            new ShatteredDonationPlaceholders(this).register();
             papi = true;
         } else {
             getLogger().info("Could not find PlaceholderAPI! Placeholders will not be parsed.");
