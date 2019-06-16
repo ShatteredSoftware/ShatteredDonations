@@ -84,6 +84,7 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
 
     public void doRandomReward(Player player)
     {
+        setDonationCount(player, getDonationCount(player) + 1);
         DonationReward reward = config.getRandomReward();
         HashMap<String, String> args = new HashMap<>();
         args.put("player", player.getDisplayName());
@@ -150,15 +151,15 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
     }
 
     @Override
-    public void loadPlayer(Player p)
+    public void loadPlayer(Player player)
     {
-        data.getDonations(p.getUniqueId());
+        data.getDonations(player.getUniqueId());
     }
 
     @Override
-    public void savePlayer(Player p)
+    public void savePlayer(Player player)
     {
-        data.setDonations(p.getUniqueId(), donationValues.get(p.getUniqueId()));
+        data.setDonations(player.getUniqueId(), donationValues.get(player.getUniqueId()));
     }
 
     public String replace(String str, Player player)
