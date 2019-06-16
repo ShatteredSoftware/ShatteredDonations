@@ -6,8 +6,14 @@ import org.projpi.shattereddonations.ShatteredDonations;
 import java.util.Arrays;
 import java.util.Map;
 
+/**
+ * A reward that manipulates the player's stats.
+ */
 public class StatReward implements DonationReward
 {
+    /**
+     * The reward parser for this reward type.
+     */
     public static final RewardParser parser = new Parser();
 
     private final StatType statType;
@@ -15,6 +21,14 @@ public class StatReward implements DonationReward
     private final int change;
     private final String name;
 
+    /**
+     * Builds a stat reward.
+     *
+     * @param statType The type of the stat to modify.
+     * @param operation The operation to do to the stat.
+     * @param change The amount to change the stat by.
+     * @param name The name of the reward.
+     */
     public StatReward(StatType statType, StatOperation operation, int change, String name)
     {
         this.statType = statType;
@@ -47,7 +61,9 @@ public class StatReward implements DonationReward
         }
     }
 
-
+    /**
+     * Internal parsing class. Parses a StatReward from a Map.
+     */
     private static class Parser implements RewardParser
     {
         @Override
@@ -92,6 +108,9 @@ public class StatReward implements DonationReward
         }
     }
 
+    /**
+     * Available types of stats to modify.
+     */
     private enum StatType
     {
         HEALTH("Health"),
@@ -119,6 +138,9 @@ public class StatReward implements DonationReward
         }
     }
 
+    /**
+     * The available operations for stats.
+     */
     private enum  StatOperation {
         RELATIVE,
         ABSOLUTE

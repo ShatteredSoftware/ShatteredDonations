@@ -7,13 +7,27 @@ import org.projpi.shattereddonations.ShatteredDonations;
 
 import java.util.Map;
 
+/**
+ * A reward that gives the player a status effect.
+ */
 public class EffectReward implements DonationReward
 {
+    /**
+     * The reward parser for this reward type.
+     */
     public static final RewardParser parser = new Parser();
 
     private final String name;
     private final PotionEffect potion;
 
+    /**
+     * Builds an EffectReward.
+     *
+     * @param effect The potion type for the reward to inflict.
+     * @param power The power of the effect, starting at 1.
+     * @param duration The duration in ticks.
+     * @param name The name of the reward.
+     */
     public EffectReward(PotionEffectType effect, int power, int duration, String name)
     {
         this.name = name;
@@ -32,6 +46,9 @@ public class EffectReward implements DonationReward
         player.addPotionEffect(potion);
     }
 
+    /**
+     * Internal parsing class. Parses a EffectReward from a Map.
+     */
     private static class Parser implements RewardParser
     {
         @Override

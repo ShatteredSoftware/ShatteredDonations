@@ -11,8 +11,14 @@ import org.projpi.shattereddonations.ShatteredDonations;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * A reward that spawns entities around the player.
+ */
 public class MobReward implements DonationReward
 {
+    /**
+     * The reward parser for this reward type.
+     */
     public static final RewardParser parser = new Parser();
 
     private final EntityType mob;
@@ -21,6 +27,14 @@ public class MobReward implements DonationReward
     private final String name;
     private static final Random random = new Random();
 
+    /**
+     * Builds a MobReward.
+     *
+     * @param mob The EntityType to spawn.
+     * @param radius The radius to spawn the mobs in.
+     * @param amount The number of mobs to spawn.
+     * @param name The name of the reward.
+     */
     public MobReward(EntityType mob, int radius, int amount, String name)
     {
         this.mob = mob;
@@ -71,6 +85,9 @@ public class MobReward implements DonationReward
         }
     }
 
+    /**
+     * Internal parsing class. Parses a MobReward from a Map.
+     */
     private static class Parser implements RewardParser
     {
 

@@ -7,10 +7,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
+/**
+ * A class to store messages and load them from files and internal.
+ *
+ * @author UberPilot
+ */
 public class Messages
 {
     private HashMap<String, String> messages;
 
+    /**
+     * Creates a set of messages from a file, <code>defaultMessages.yml</code> included in a jar.
+     *
+     * @param instance The instance of JavaPlugin.
+     * @param config The config to load messages from.
+     */
     public Messages(JavaPlugin instance, YamlConfiguration config)
     {
         messages = new HashMap<>();
@@ -26,6 +37,12 @@ public class Messages
         }
     }
 
+    /**
+     * Gets the message with the given key.
+     *
+     * @param key The key of the message to get.
+     * @return The message, if it exists, or <code>null</code> otherwise.
+     */
     public String getMessage(String key)
     {
         return messages.get(key);

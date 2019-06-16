@@ -9,10 +9,18 @@ import org.projpi.shattereddonations.ShatteredDonations;
 
 import java.util.HashMap;
 
+/**
+ * The /donation command. Executes the donation event on the provided player.
+ */
 public class DonationCommand implements CommandExecutor
 {
     private transient final ShatteredDonations instance;
 
+    /**
+     * Builds the donation command.
+     *
+     * @param instance The instance of ShatteredDonations. Dependency injection.
+     */
     public DonationCommand(ShatteredDonations instance)
     {
         this.instance = instance;

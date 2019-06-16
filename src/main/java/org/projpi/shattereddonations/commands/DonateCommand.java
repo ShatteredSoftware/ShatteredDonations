@@ -7,10 +7,18 @@ import org.projpi.shattereddonations.ShatteredDonations;
 
 import java.util.HashMap;
 
+/**
+ * The /donate command. Gives the player the link to the donation site.
+ */
 public class DonateCommand implements CommandExecutor
 {
     private transient final ShatteredDonations instance;
 
+    /**
+     * Builds the donate command.
+     *
+     * @param instance The instance of ShatteredDonations. Dependency injection.
+     */
     public DonateCommand(ShatteredDonations instance)
     {
         this.instance = instance;

@@ -15,19 +15,25 @@ public class DonateLoader
     private DonateConfig config;
     private Messages messages;
 
+    /**
+     * @param instance The instance of ShatteredDonations. Dependency injection.
+     */
     public DonateLoader(ShatteredDonations instance)
     {
         this.instance = instance;
     }
 
+    /**
+     * Loads the Messages and DonateConfig from their files, extracting them as necessary. Also creates a data folder.
+     */
     public void load()
     {
-        if(!instance.getDataFolder().exists())
+        if (!instance.getDataFolder().exists())
         {
             instance.getDataFolder().mkdirs();
         }
         File config = new File(instance.getDataFolder(), "config.yml");
-        if(!config.exists())
+        if (!config.exists())
         {
             try
             {
@@ -41,7 +47,7 @@ public class DonateLoader
         }
         this.config = new DonateConfig(instance, YamlConfiguration.loadConfiguration(config));
         File messages = new File(instance.getDataFolder(), "messages.yml");
-        if(!messages.exists())
+        if (!messages.exists())
         {
             try
             {
@@ -57,11 +63,20 @@ public class DonateLoader
         new File(instance.getDataFolder(), "data").mkdirs();
     }
 
+    /**
+     * @return Messages, if it has been loaded, <code>null</code> otherwise. If it is <code>null</code>, {@link #load()}
+     * can be called to load it.
+     */
     public Messages getMessages()
     {
         return messages;
     }
 
+
+    /**
+     * @return The DonateConfig, if it has been loaded, <code>null</code> otherwise. If it is <code>null</code>, {@link
+     * #load()} can be called to load it.
+     */
     public DonateConfig getConfig()
     {
         return config;

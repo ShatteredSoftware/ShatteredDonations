@@ -1,0 +1,8 @@
+org.projpi.shattereddonations
+org.projpi.shattereddonations.commands
+org.projpi.shattereddonations.events
+org.projpi.shattereddonations.listeners
+org.projpi.shattereddonations.placeholders
+org.projpi.shattereddonations.rewards
+org.projpi.shattereddonations.storage
+org.projpi.shattereddonations.util

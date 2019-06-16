@@ -6,14 +6,27 @@ import org.projpi.shattereddonations.ShatteredDonations;
 
 import java.util.Map;
 
+/**
+ * A reward that runs a command on the player.
+ */
 public class CommandReward implements DonationReward
 {
+    /**
+     * The reward parser for this reward type.
+     */
     public static final RewardParser parser = new Parser();
 
     private final String command;
     private final String name;
     private transient final ShatteredDonations instance;
 
+    /**
+     * Builds a CommandReward.
+     *
+     * @param instance The instance of ShatteredDonations. Dependency injection.
+     * @param command The command to run.
+     * @param name The name of the reward.
+     */
     public CommandReward(ShatteredDonations instance, String command, String name)
     {
         this.command = command;
@@ -34,6 +47,9 @@ public class CommandReward implements DonationReward
                 .replaceAll("%username%", player.getName()));
     }
 
+    /**
+     * Internal parsing class. Parses a CommandReward from a Map.
+     */
     private static class Parser implements RewardParser
     {
         @Override

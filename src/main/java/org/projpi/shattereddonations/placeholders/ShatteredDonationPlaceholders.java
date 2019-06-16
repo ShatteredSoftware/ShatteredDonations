@@ -8,6 +8,11 @@ public class ShatteredDonationPlaceholders extends PlaceholderExpansion
 {
     private transient final ShatteredDonations instance;
 
+    /**
+     * Builds the placeholder expansion.
+     *
+     * @param instance The instance of ShatteredDonations. Dependency injection.
+     */
     public ShatteredDonationPlaceholders(ShatteredDonations instance)
     {
         this.instance = instance;

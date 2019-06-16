@@ -19,6 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Base class for ShatteredDonations.
+ *
+ * @see ShatteredDonationsAPI
+ */
 public class ShatteredDonations extends JavaPlugin implements ShatteredDonationsAPI
 {
     private HashMap<String, RewardParser> parsers;
@@ -150,6 +155,7 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
         donationValues.put(player.getUniqueId(), donations);
     }
 
+
     @Override
     public void loadPlayer(Player player)
     {
@@ -162,6 +168,13 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
         data.setDonations(player.getUniqueId(), donationValues.get(player.getUniqueId()));
     }
 
+    /**
+     * Replaces placeholders, with or without PlaceholderAPI.
+     *
+     * @param str The string, including placeholders, to replace.
+     * @param player The player to set the placeholders to.
+     * @return The string, with placeholders changed.
+     */
     public String replace(String str, Player player)
     {
         if(!papi)
@@ -172,16 +185,25 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
         return PlaceholderAPI.setPlaceholders(player, str);
     }
 
+    /**
+     * @return The config associated with this plugin.
+     */
     public DonateConfig config()
     {
         return config;
     }
 
+    /**
+     * @return Whether or not this plugin has found PlaceholderAPI.
+     */
     public boolean hasPlaceholders()
     {
         return papi;
     }
 
+    /**
+     * @return The messenger associated with this plugin.
+     */
     public Messenger getMessenger()
     {
         return messenger;
