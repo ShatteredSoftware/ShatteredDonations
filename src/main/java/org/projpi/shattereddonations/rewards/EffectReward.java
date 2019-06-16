@@ -14,7 +14,7 @@ public class EffectReward implements DonationReward
     private final String name;
     private final PotionEffect potion;
 
-    public EffectReward(ShatteredDonations instance, PotionEffectType effect, int power, int duration, String name)
+    public EffectReward(PotionEffectType effect, int power, int duration, String name)
     {
         this.name = name;
         this.potion = new PotionEffect(effect, duration, power);
@@ -55,7 +55,7 @@ public class EffectReward implements DonationReward
             int power = map.containsKey("power") ? (int) map.get("power") : 1;
             int duration = map.containsKey("duration") ? (int) (20D * (double) map.get("duration")) : 20;
 
-            return new EffectReward(instance, effectType, power - 1, duration, name);
+            return new EffectReward(effectType, power - 1, duration, name);
         }
 
         @Override
