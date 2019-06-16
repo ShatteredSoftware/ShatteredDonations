@@ -3,6 +3,7 @@ package org.projpi.shattereddonations;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.projpi.shattereddonations.commands.DonateCommand;
@@ -192,7 +193,7 @@ public class ShatteredDonations extends JavaPlugin implements ShatteredDonations
     {
         if(!papi)
         {
-            return str.replaceAll("%username%", player.getName());
+            return ChatColor.translateAlternateColorCodes('&', str.replaceAll("%username%", player.getName()));
         }
 
         return PlaceholderAPI.setPlaceholders(player, str);
