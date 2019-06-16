@@ -1,7 +1,9 @@
 ### ShatteredDonations
 *A simple, EULA-compliant donation plugin.*
 ___
-
+[![Build Status](http://projpi.org:8080/buildStatus/icon?job=ShatteredSuite%2FShatteredDonations%2Fmaster)](http://projpi.org:8080/job/ShatteredSuite/job/ShatteredDonations/job/master/)
+![GitHub issues](https://img.shields.io/github/issues-raw/ShatteredSuite/ShatteredDonations.svg)
+[![Get Support on Discord](https://img.shields.io/badge/get%20support-on%20discord-%237289DA.svg)](https://discordapp.com/invite/zUbNX9t)
 #### Defaults
 
 **config.yml**
